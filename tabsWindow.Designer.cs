@@ -63,6 +63,7 @@
             this.directory = new mmp.TriTreeView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.iconReshow = new System.Windows.Forms.Timer(this.components);
+            this.rootPathChangeButton = new System.Windows.Forms.Button();
             this.iconMenu.SuspendLayout();
             this.tabAbout.SuspendLayout();
             this.tabSetting.SuspendLayout();
@@ -260,6 +261,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rootPathChangeButton);
             this.groupBox1.Controls.Add(this.rootPathReloadButton);
             this.groupBox1.Controls.Add(this.settingRootPathText);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -392,6 +394,17 @@
             this.iconReshow.Interval = 30000;
             this.iconReshow.Tick += new System.EventHandler(this.iconReshow_Tick);
             // 
+            // rootPathChangeButton
+            // 
+            this.rootPathChangeButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rootPathChangeButton.Location = new System.Drawing.Point(3, 36);
+            this.rootPathChangeButton.Name = "rootPathChangeButton";
+            this.rootPathChangeButton.Size = new System.Drawing.Size(75, 23);
+            this.rootPathChangeButton.TabIndex = 7;
+            this.rootPathChangeButton.Text = "change";
+            this.rootPathChangeButton.UseVisualStyleBackColor = true;
+            this.rootPathChangeButton.Click += new System.EventHandler(this.rootPathChangeButton_Click);
+            // 
             // tabsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,6 +468,7 @@
         private System.Windows.Forms.Button rootPathReloadButton;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox infobarShowMode;
+        private System.Windows.Forms.Button rootPathChangeButton;
     }
 }
 

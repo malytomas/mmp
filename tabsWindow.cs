@@ -439,17 +439,6 @@ namespace mmp
             }
         }
 
-        private void settingRootPathText_Click(object sender, EventArgs e)
-        {
-            if (settingRootPathBrowser.ShowDialog() == DialogResult.OK)
-            {
-                settingRootPathText.Text = settingRootPathBrowser.SelectedPath;
-                DirectorySave();
-                ConfSave();
-                DirectoryLoad();
-            }
-        }
-
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
             switch (e.Button)
@@ -621,6 +610,17 @@ namespace mmp
         {
             DirectorySave();
             DirectoryLoad();
+        }
+
+        private void rootPathChangeButton_Click(object sender, EventArgs e)
+        {
+            if (settingRootPathBrowser.ShowDialog() == DialogResult.OK)
+            {
+                settingRootPathText.Text = settingRootPathBrowser.SelectedPath;
+                DirectorySave();
+                ConfSave();
+                DirectoryLoad();
+            }
         }
     }
 }
