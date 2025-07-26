@@ -2,8 +2,8 @@
 *.user
 *.suo
 playlist.mmp
-obj
 
-bin/*/*
-!bin/*/*.dll
+/obj
+/bin/*/*
+!/bin/*/*.dll
 

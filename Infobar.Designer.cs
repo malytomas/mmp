@@ -47,32 +47,35 @@
             // 
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.progressBar.Location = new System.Drawing.Point(0, 0);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(6);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(508, 23);
+            this.progressBar.Size = new System.Drawing.Size(1016, 44);
             this.progressBar.TabIndex = 0;
             this.progressBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.progressBar_MouseDown);
             // 
             // progressLabel
             // 
             this.progressLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressLabel.Location = new System.Drawing.Point(0, 23);
-            this.progressLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.progressLabel.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressLabel.Location = new System.Drawing.Point(0, 44);
+            this.progressLabel.Margin = new System.Windows.Forms.Padding(6);
             this.progressLabel.Name = "progressLabel";
-            this.progressLabel.Size = new System.Drawing.Size(508, 21);
+            this.progressLabel.Size = new System.Drawing.Size(1016, 57);
             this.progressLabel.TabIndex = 1;
-            this.progressLabel.Text = "label1";
+            this.progressLabel.Text = "timestamp";
             this.progressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // nameLabel
             // 
             this.nameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nameLabel.Location = new System.Drawing.Point(0, 44);
-            this.nameLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.nameLabel.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(0, 101);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(6);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(508, 38);
+            this.nameLabel.Size = new System.Drawing.Size(1016, 55);
             this.nameLabel.TabIndex = 2;
-            this.nameLabel.Text = "label1";
-            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.nameLabel.Text = "path";
+            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // timer2
             // 
@@ -80,14 +83,15 @@
             // 
             // Infobar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 82);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1016, 156);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.progressLabel);
             this.Controls.Add(this.progressBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Infobar";

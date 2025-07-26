@@ -1,6 +1,6 @@
 ﻿namespace mmp
 {
-    partial class tabsWindow
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tabsWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.settingRootPathBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.icon = new System.Windows.Forms.NotifyIcon(this.components);
             this.iconMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -52,6 +52,7 @@
             this.devicesReloadButton = new System.Windows.Forms.Button();
             this.devicesComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rootPathChangeButton = new System.Windows.Forms.Button();
             this.rootPathReloadButton = new System.Windows.Forms.Button();
             this.settingRootPathText = new System.Windows.Forms.TextBox();
             this.tabPlaymode = new System.Windows.Forms.TabPage();
@@ -60,10 +61,9 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.tabPlaylist = new System.Windows.Forms.TabPage();
-            this.directory = new mmp.TriTreeView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.iconReshow = new System.Windows.Forms.Timer(this.components);
-            this.rootPathChangeButton = new System.Windows.Forms.Button();
+            this.directory = new mmp.TriTreeView();
             this.iconMenu.SuspendLayout();
             this.tabAbout.SuspendLayout();
             this.tabSetting.SuspendLayout();
@@ -90,6 +90,7 @@
             // 
             // iconMenu
             // 
+            this.iconMenu.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.iconMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showHideToolStripMenuItem,
             this.playerToolStripMenuItem,
@@ -97,12 +98,12 @@
             this.volumeToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.iconMenu.Name = "contextMenuStrip1";
-            this.iconMenu.Size = new System.Drawing.Size(140, 114);
+            this.iconMenu.Size = new System.Drawing.Size(220, 194);
             // 
             // showHideToolStripMenuItem
             // 
             this.showHideToolStripMenuItem.Name = "showHideToolStripMenuItem";
-            this.showHideToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.showHideToolStripMenuItem.Size = new System.Drawing.Size(219, 38);
             this.showHideToolStripMenuItem.Text = "Show / Hide";
             this.showHideToolStripMenuItem.Click += new System.EventHandler(this.showHideToolStripMenuItem_Click);
             // 
@@ -114,53 +115,53 @@
             this.nextToolStripMenuItem,
             this.reloadDevicesToolStripMenuItem});
             this.playerToolStripMenuItem.Name = "playerToolStripMenuItem";
-            this.playerToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.playerToolStripMenuItem.Size = new System.Drawing.Size(219, 38);
             this.playerToolStripMenuItem.Text = "Player";
             // 
             // playToolStripMenuItem
             // 
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
-            this.playToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.playToolStripMenuItem.Size = new System.Drawing.Size(308, 44);
             this.playToolStripMenuItem.Text = "Play / Pause";
             this.playToolStripMenuItem.Click += new System.EventHandler(this.playToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(308, 44);
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
             // nextToolStripMenuItem
             // 
             this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(308, 44);
             this.nextToolStripMenuItem.Text = "Next";
             this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
             // 
             // reloadDevicesToolStripMenuItem
             // 
             this.reloadDevicesToolStripMenuItem.Name = "reloadDevicesToolStripMenuItem";
-            this.reloadDevicesToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.reloadDevicesToolStripMenuItem.Size = new System.Drawing.Size(308, 44);
             this.reloadDevicesToolStripMenuItem.Text = "Reload Devices";
             this.reloadDevicesToolStripMenuItem.Click += new System.EventHandler(this.devicesReloadButton_Click);
             // 
             // playModeToolStripMenuItem
             // 
             this.playModeToolStripMenuItem.Name = "playModeToolStripMenuItem";
-            this.playModeToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.playModeToolStripMenuItem.Size = new System.Drawing.Size(219, 38);
             this.playModeToolStripMenuItem.Text = "Play mode";
             // 
             // volumeToolStripMenuItem
             // 
             this.volumeToolStripMenuItem.Name = "volumeToolStripMenuItem";
-            this.volumeToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.volumeToolStripMenuItem.Size = new System.Drawing.Size(219, 38);
             this.volumeToolStripMenuItem.Text = "Volume";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(219, 38);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -172,9 +173,10 @@
             // tabAbout
             // 
             this.tabAbout.Controls.Add(this.aboutBox);
-            this.tabAbout.Location = new System.Drawing.Point(4, 4);
+            this.tabAbout.Location = new System.Drawing.Point(8, 8);
+            this.tabAbout.Margin = new System.Windows.Forms.Padding(6);
             this.tabAbout.Name = "tabAbout";
-            this.tabAbout.Size = new System.Drawing.Size(350, 686);
+            this.tabAbout.Size = new System.Drawing.Size(700, 1310);
             this.tabAbout.TabIndex = 4;
             this.tabAbout.Text = "About";
             this.tabAbout.UseVisualStyleBackColor = true;
@@ -184,9 +186,10 @@
             this.aboutBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.aboutBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aboutBox.Location = new System.Drawing.Point(0, 0);
+            this.aboutBox.Margin = new System.Windows.Forms.Padding(6);
             this.aboutBox.Name = "aboutBox";
             this.aboutBox.ReadOnly = true;
-            this.aboutBox.Size = new System.Drawing.Size(350, 686);
+            this.aboutBox.Size = new System.Drawing.Size(700, 1322);
             this.aboutBox.TabIndex = 0;
             this.aboutBox.Text = resources.GetString("aboutBox.Text");
             // 
@@ -195,9 +198,10 @@
             this.tabSetting.Controls.Add(this.groupBox3);
             this.tabSetting.Controls.Add(this.groupBox2);
             this.tabSetting.Controls.Add(this.groupBox1);
-            this.tabSetting.Location = new System.Drawing.Point(4, 4);
+            this.tabSetting.Location = new System.Drawing.Point(8, 8);
+            this.tabSetting.Margin = new System.Windows.Forms.Padding(6);
             this.tabSetting.Name = "tabSetting";
-            this.tabSetting.Size = new System.Drawing.Size(350, 686);
+            this.tabSetting.Size = new System.Drawing.Size(700, 1310);
             this.tabSetting.TabIndex = 2;
             this.tabSetting.Text = "Setting";
             this.tabSetting.UseVisualStyleBackColor = true;
@@ -206,23 +210,26 @@
             // 
             this.groupBox3.Controls.Add(this.infobarShowMode);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(0, 126);
+            this.groupBox3.Location = new System.Drawing.Point(0, 277);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(350, 43);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox3.Size = new System.Drawing.Size(700, 100);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "song info window";
+            this.groupBox3.Text = "Song info window";
             // 
             // infobarShowMode
             // 
             this.infobarShowMode.Dock = System.Windows.Forms.DockStyle.Top;
             this.infobarShowMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.infobarShowMode.Items.AddRange(new object[] {
-            "open when song starts",
-            "manual open only"});
-            this.infobarShowMode.Location = new System.Drawing.Point(3, 16);
+            "Open when song starts",
+            "Manual open only"});
+            this.infobarShowMode.Location = new System.Drawing.Point(6, 42);
+            this.infobarShowMode.Margin = new System.Windows.Forms.Padding(6);
             this.infobarShowMode.Name = "infobarShowMode";
-            this.infobarShowMode.Size = new System.Drawing.Size(344, 21);
+            this.infobarShowMode.Size = new System.Drawing.Size(688, 45);
             this.infobarShowMode.TabIndex = 0;
             // 
             // groupBox2
@@ -230,21 +237,24 @@
             this.groupBox2.Controls.Add(this.devicesReloadButton);
             this.groupBox2.Controls.Add(this.devicesComboBox);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 62);
+            this.groupBox2.Location = new System.Drawing.Point(0, 135);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(350, 64);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox2.Size = new System.Drawing.Size(700, 142);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "audio device";
+            this.groupBox2.Text = "Audio device";
             // 
             // devicesReloadButton
             // 
             this.devicesReloadButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.devicesReloadButton.Location = new System.Drawing.Point(272, 37);
+            this.devicesReloadButton.Location = new System.Drawing.Point(544, 87);
+            this.devicesReloadButton.Margin = new System.Windows.Forms.Padding(6);
             this.devicesReloadButton.Name = "devicesReloadButton";
-            this.devicesReloadButton.Size = new System.Drawing.Size(75, 24);
+            this.devicesReloadButton.Size = new System.Drawing.Size(150, 49);
             this.devicesReloadButton.TabIndex = 5;
-            this.devicesReloadButton.Text = "reload";
+            this.devicesReloadButton.Text = "Reload";
             this.devicesReloadButton.UseVisualStyleBackColor = true;
             this.devicesReloadButton.Click += new System.EventHandler(this.devicesReloadButton_Click);
             // 
@@ -253,9 +263,10 @@
             this.devicesComboBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.devicesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.devicesComboBox.FormattingEnabled = true;
-            this.devicesComboBox.Location = new System.Drawing.Point(3, 16);
+            this.devicesComboBox.Location = new System.Drawing.Point(6, 42);
+            this.devicesComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.devicesComboBox.Name = "devicesComboBox";
-            this.devicesComboBox.Size = new System.Drawing.Size(344, 21);
+            this.devicesComboBox.Size = new System.Drawing.Size(688, 45);
             this.devicesComboBox.TabIndex = 4;
             this.devicesComboBox.SelectionChangeCommitted += new System.EventHandler(this.devicesComboBox_SelectionChangeCommitted);
             // 
@@ -266,30 +277,46 @@
             this.groupBox1.Controls.Add(this.settingRootPathText);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(350, 62);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox1.Size = new System.Drawing.Size(700, 135);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "music root path";
+            this.groupBox1.Text = "Music root path";
+            // 
+            // rootPathChangeButton
+            // 
+            this.rootPathChangeButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rootPathChangeButton.Location = new System.Drawing.Point(6, 85);
+            this.rootPathChangeButton.Margin = new System.Windows.Forms.Padding(6);
+            this.rootPathChangeButton.Name = "rootPathChangeButton";
+            this.rootPathChangeButton.Size = new System.Drawing.Size(150, 44);
+            this.rootPathChangeButton.TabIndex = 7;
+            this.rootPathChangeButton.Text = "Change";
+            this.rootPathChangeButton.UseVisualStyleBackColor = true;
+            this.rootPathChangeButton.Click += new System.EventHandler(this.rootPathChangeButton_Click);
             // 
             // rootPathReloadButton
             // 
             this.rootPathReloadButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rootPathReloadButton.Location = new System.Drawing.Point(272, 36);
+            this.rootPathReloadButton.Location = new System.Drawing.Point(544, 85);
+            this.rootPathReloadButton.Margin = new System.Windows.Forms.Padding(6);
             this.rootPathReloadButton.Name = "rootPathReloadButton";
-            this.rootPathReloadButton.Size = new System.Drawing.Size(75, 23);
+            this.rootPathReloadButton.Size = new System.Drawing.Size(150, 44);
             this.rootPathReloadButton.TabIndex = 6;
-            this.rootPathReloadButton.Text = "reload";
+            this.rootPathReloadButton.Text = "Reload";
             this.rootPathReloadButton.UseVisualStyleBackColor = true;
             this.rootPathReloadButton.Click += new System.EventHandler(this.rootPathReloadButton_Click);
             // 
             // settingRootPathText
             // 
             this.settingRootPathText.Dock = System.Windows.Forms.DockStyle.Top;
-            this.settingRootPathText.Location = new System.Drawing.Point(3, 16);
+            this.settingRootPathText.Location = new System.Drawing.Point(6, 42);
+            this.settingRootPathText.Margin = new System.Windows.Forms.Padding(6);
             this.settingRootPathText.Name = "settingRootPathText";
             this.settingRootPathText.ReadOnly = true;
-            this.settingRootPathText.Size = new System.Drawing.Size(344, 20);
+            this.settingRootPathText.Size = new System.Drawing.Size(688, 43);
             this.settingRootPathText.TabIndex = 3;
             // 
             // tabPlaymode
@@ -298,10 +325,11 @@
             this.tabPlaymode.Controls.Add(this.radioButton3);
             this.tabPlaymode.Controls.Add(this.radioButton2);
             this.tabPlaymode.Controls.Add(this.radioButton1);
-            this.tabPlaymode.Location = new System.Drawing.Point(4, 4);
+            this.tabPlaymode.Location = new System.Drawing.Point(8, 8);
+            this.tabPlaymode.Margin = new System.Windows.Forms.Padding(6);
             this.tabPlaymode.Name = "tabPlaymode";
-            this.tabPlaymode.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlaymode.Size = new System.Drawing.Size(350, 686);
+            this.tabPlaymode.Padding = new System.Windows.Forms.Padding(6);
+            this.tabPlaymode.Size = new System.Drawing.Size(700, 1310);
             this.tabPlaymode.TabIndex = 1;
             this.tabPlaymode.Text = "Play mode";
             this.tabPlaymode.UseVisualStyleBackColor = true;
@@ -311,9 +339,10 @@
             this.radioButton4.AutoCheck = false;
             this.radioButton4.AutoSize = true;
             this.radioButton4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radioButton4.Location = new System.Drawing.Point(3, 54);
+            this.radioButton4.Location = new System.Drawing.Point(6, 129);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(6);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(344, 17);
+            this.radioButton4.Size = new System.Drawing.Size(688, 41);
             this.radioButton4.TabIndex = 3;
             this.radioButton4.Text = "Random";
             // 
@@ -322,9 +351,10 @@
             this.radioButton3.AutoCheck = false;
             this.radioButton3.AutoSize = true;
             this.radioButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radioButton3.Location = new System.Drawing.Point(3, 37);
+            this.radioButton3.Location = new System.Drawing.Point(6, 88);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(6);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(344, 17);
+            this.radioButton3.Size = new System.Drawing.Size(688, 41);
             this.radioButton3.TabIndex = 2;
             this.radioButton3.Text = "Continue";
             // 
@@ -333,9 +363,10 @@
             this.radioButton2.AutoCheck = false;
             this.radioButton2.AutoSize = true;
             this.radioButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radioButton2.Location = new System.Drawing.Point(3, 20);
+            this.radioButton2.Location = new System.Drawing.Point(6, 47);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(6);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(344, 17);
+            this.radioButton2.Size = new System.Drawing.Size(688, 41);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.Text = "Repeat";
             // 
@@ -344,35 +375,23 @@
             this.radioButton1.AutoCheck = false;
             this.radioButton1.AutoSize = true;
             this.radioButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
+            this.radioButton1.Location = new System.Drawing.Point(6, 6);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(6);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(344, 17);
+            this.radioButton1.Size = new System.Drawing.Size(688, 41);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.Text = "Single";
             // 
             // tabPlaylist
             // 
             this.tabPlaylist.Controls.Add(this.directory);
-            this.tabPlaylist.Location = new System.Drawing.Point(4, 4);
+            this.tabPlaylist.Location = new System.Drawing.Point(8, 8);
+            this.tabPlaylist.Margin = new System.Windows.Forms.Padding(6);
             this.tabPlaylist.Name = "tabPlaylist";
-            this.tabPlaylist.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlaylist.Size = new System.Drawing.Size(350, 686);
+            this.tabPlaylist.Padding = new System.Windows.Forms.Padding(6);
+            this.tabPlaylist.Size = new System.Drawing.Size(700, 1310);
             this.tabPlaylist.TabIndex = 0;
             this.tabPlaylist.Text = "Playlist";
-            this.tabPlaylist.UseVisualStyleBackColor = true;
-            // 
-            // directory
-            // 
-            this.directory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.directory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.directory.Location = new System.Drawing.Point(3, 3);
-            this.directory.Name = "directory";
-            this.directory.ShowRootLines = false;
-            this.directory.Size = new System.Drawing.Size(344, 680);
-            this.directory.TabIndex = 1;
-            this.directory.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.directory_BeforeCollapse);
-            this.directory.DoubleClick += new System.EventHandler(this.directory_DoubleClick);
-            this.directory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.directory_KeyPress);
             // 
             // tabControl1
             // 
@@ -383,9 +402,10 @@
             this.tabControl1.Controls.Add(this.tabAbout);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(358, 712);
+            this.tabControl1.Size = new System.Drawing.Size(716, 1369);
             this.tabControl1.TabIndex = 1;
             // 
             // iconReshow
@@ -394,27 +414,31 @@
             this.iconReshow.Interval = 30000;
             this.iconReshow.Tick += new System.EventHandler(this.iconReshow_Tick);
             // 
-            // rootPathChangeButton
+            // directory
             // 
-            this.rootPathChangeButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rootPathChangeButton.Location = new System.Drawing.Point(3, 36);
-            this.rootPathChangeButton.Name = "rootPathChangeButton";
-            this.rootPathChangeButton.Size = new System.Drawing.Size(75, 23);
-            this.rootPathChangeButton.TabIndex = 7;
-            this.rootPathChangeButton.Text = "change";
-            this.rootPathChangeButton.UseVisualStyleBackColor = true;
-            this.rootPathChangeButton.Click += new System.EventHandler(this.rootPathChangeButton_Click);
+            this.directory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.directory.Location = new System.Drawing.Point(6, 6);
+            this.directory.Margin = new System.Windows.Forms.Padding(6);
+            this.directory.Name = "directory";
+            this.directory.ShowRootLines = false;
+            this.directory.Size = new System.Drawing.Size(688, 1298);
+            this.directory.TabIndex = 1;
+            this.directory.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.directory_BeforeCollapse);
+            this.directory.DoubleClick += new System.EventHandler(this.directory_DoubleClick);
+            this.directory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.directory_KeyPress);
             // 
-            // tabsWindow
+            // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 712);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(716, 1369);
             this.Controls.Add(this.tabControl1);
+            this.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(300, 39);
-            this.Name = "tabsWindow";
+            this.MinimumSize = new System.Drawing.Size(574, 71);
+            this.Name = "MainWindow";
             this.Text = "mmp";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.tabsWindow_FormClosed);
             this.Load += new System.EventHandler(this.tabsWindow_Load);

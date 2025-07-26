@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
-using System.Windows.Forms;
-
-using FMOD;
 
 namespace mmp
 {
@@ -33,15 +30,15 @@ namespace mmp
             system.getNumDrivers(ref numdrivers);
             for (int i = 0; i < numdrivers; i++)
             {
-                StringBuilder namebuilder = new StringBuilder (200);
-                FMOD.GUID guid = new FMOD.GUID ();
+                StringBuilder namebuilder = new StringBuilder(200);
+                FMOD.GUID guid = new FMOD.GUID();
                 system.getDriverInfo(i, namebuilder, namebuilder.Capacity, ref guid);
                 result.Add(new KeyValuePair<FMOD.GUID, string>(guid, namebuilder.ToString()));
             }
             return result;
         }
 
-        public void SetDevice (int index)
+        public void SetDevice(int index)
         {
             system.setDriver(index);
         }
@@ -53,7 +50,7 @@ namespace mmp
             return num;
         }
 
-        public bool Load (string path)
+        public bool Load(string path)
         {
             return system.createStream(path, FMOD.MODE.DEFAULT, ref sound) == FMOD.RESULT.OK;
         }

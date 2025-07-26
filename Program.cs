@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace mmp
@@ -15,7 +13,7 @@ namespace mmp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new tabsWindow());
+            Application.Run(new MainWindow());
         }
     }
 }

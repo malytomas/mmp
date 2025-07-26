@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace mmp
 {
     public class TriTreeView : System.Windows.Forms.TreeView
@@ -22,25 +23,81 @@ namespace mmp
 
         public enum CheckedState : int { UnInitialised = -1, UnChecked, Checked, Mixed };
 
-        public TriTreeView(): base()
+        /*
+        private float currentDpi;
+
+        private void UpdateDpi()
         {
+            using (System.Drawing.Graphics g = System.Drawing.Graphics.FromHwnd(Handle))
+            {
+                float newDpi = g.DpiY;
+                if (Math.Abs(currentDpi - newDpi) < 0.1f)
+                    return;
+                currentDpi = newDpi;
+            }
+
+            {
+                float scale = currentDpi / 96f;
+                //Font = new System.Drawing.Font(Font.FontFamily, 8.25f * scale, Font.Style);
+                // ItemHeight = (int)(Font.Height * 1.5f); // Adjust node height
+            }
+
+            {
+                StateImageList = new System.Windows.Forms.ImageList();
+                for (int i = 0; i < 3; i++)
+                {
+                    System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(28, 28);
+                    System.Drawing.Graphics chkGraphics = System.Drawing.Graphics.FromImage(bmp);
+                    System.Windows.Forms.VisualStyles.CheckBoxState st = System.Windows.Forms.VisualStyles.CheckBoxState.UncheckedNormal;
+                    switch (i)
+                    {
+                        case 1:
+                            st = System.Windows.Forms.VisualStyles.CheckBoxState.CheckedNormal;
+                            break;
+                        case 2:
+                            st = System.Windows.Forms.VisualStyles.CheckBoxState.MixedNormal;
+                            break;
+                    }
+                    System.Windows.Forms.CheckBoxRenderer.DrawCheckBox(chkGraphics, new System.Drawing.Point(0, 0), st);
+                    StateImageList.Images.Add(bmp);
+                }
+            }
+        }
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+            UpdateDpi();
+        }
+
+        protected override void OnFontChanged(EventArgs e)
+        {
+            base.OnFontChanged(e);
+            //ItemHeight = (int)(Font.Height * 1.5f);
+            //Indent = (int)(currentDpi * 16f / 96f);
+        }
+        */
+
+        public TriTreeView() : base()
+        {
+            SetStyle(System.Windows.Forms.ControlStyles.OptimizedDoubleBuffer | System.Windows.Forms.ControlStyles.AllPaintingInWmPaint, true);
+
             StateImageList = new System.Windows.Forms.ImageList();
             for (int i = 0; i < 3; i++)
             {
-                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(16, 16);
+                System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(26, 26);
                 System.Drawing.Graphics chkGraphics = System.Drawing.Graphics.FromImage(bmp);
+                System.Windows.Forms.VisualStyles.CheckBoxState st = System.Windows.Forms.VisualStyles.CheckBoxState.UncheckedNormal;
                 switch (i)
                 {
-                    case 0:
-                        System.Windows.Forms.CheckBoxRenderer.DrawCheckBox(chkGraphics, new System.Drawing.Point(0, 1), System.Windows.Forms.VisualStyles.CheckBoxState.UncheckedNormal);
-                        break;
                     case 1:
-                        System.Windows.Forms.CheckBoxRenderer.DrawCheckBox(chkGraphics, new System.Drawing.Point(0, 1), System.Windows.Forms.VisualStyles.CheckBoxState.CheckedNormal);
+                        st = System.Windows.Forms.VisualStyles.CheckBoxState.CheckedNormal;
                         break;
                     case 2:
-                        System.Windows.Forms.CheckBoxRenderer.DrawCheckBox(chkGraphics, new System.Drawing.Point(0, 1), System.Windows.Forms.VisualStyles.CheckBoxState.MixedNormal);
+                        st = System.Windows.Forms.VisualStyles.CheckBoxState.MixedNormal;
                         break;
                 }
+                System.Windows.Forms.CheckBoxRenderer.DrawCheckBox(chkGraphics, new System.Drawing.Point(0, 0), st);
                 StateImageList.Images.Add(bmp);
             }
         }
@@ -76,7 +133,7 @@ namespace mmp
             int OrigStateImageIndex = tn.StateImageIndex;
             CheckedCounter cnt = new CheckedCounter();
             foreach (System.Windows.Forms.TreeNode tnChild in tn.Nodes)
-                cnt = cnt + (tnChild.Tag as CheckedCounter);
+                cnt += (tnChild.Tag as CheckedCounter);
 
             if (cnt.Checked == cnt.Total)
                 tn.StateImageIndex = (int)CheckedState.Checked;
@@ -124,7 +181,7 @@ namespace mmp
                 else
                     tmp = PrepareNodeCounterOne(node.Nodes);
                 node.Tag = tmp;
-                cnt = cnt + tmp;
+                cnt += tmp;
             }
             return cnt;
         }

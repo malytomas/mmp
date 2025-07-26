@@ -7,7 +7,7 @@ namespace mmp
 {
     public partial class Infobar : Form
     {
-        public tabsWindow main;
+        public MainWindow main;
         private bool disapearing;
         private int time;
         private bool autoEnabled;

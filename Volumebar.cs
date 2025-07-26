@@ -11,7 +11,7 @@ namespace mmp
 {
     public partial class Volumebar : Form
     {
-        public tabsWindow main;
+        public MainWindow main;
         private bool disapearing;
         private int time;
 

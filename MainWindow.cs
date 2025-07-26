@@ -1,29 +1,25 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
 namespace mmp
 {
-    public partial class tabsWindow : Form
+    public partial class MainWindow : Form
     {
         Random random;
         KeyboardHook hook;
         TreeNode current;
         int playmode;
         List<string> extensionSupported;
-        System.Drawing.Font fontCurrent;
-        System.Drawing.Font fontFile;
 
         public Player player;
         public Infobar infobar;
         public Volumebar volumebar;
         public fullscreenDetector fsDetector;
 
-        public tabsWindow()
+        public MainWindow()
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
             InitializeComponent();
@@ -59,10 +55,7 @@ namespace mmp
             player.Stop();
             if (!player.Load(node.FullPath))
                 return false;
-            if (current != null)
-                current.NodeFont = fontFile;
             current = node;
-            node.NodeFont = fontCurrent;
             directory.Invalidate();
             if (infobar != null)
                 InfobarOpen(false);
@@ -283,9 +276,6 @@ namespace mmp
             Ini c = new Ini("mmp.ini");
             settingRootPathText.Text = c.Read("path", "root", System.IO.Directory.GetCurrentDirectory());
             curr = c.Read("path", "current", "");
-            float fontsize = c.Read("font", "size", 8.25f);
-            fontCurrent = new System.Drawing.Font("", fontsize, System.Drawing.FontStyle.Underline);
-            directory.Font = fontFile = new System.Drawing.Font("", fontsize, System.Drawing.FontStyle.Regular);
             player.Volume(c.Read("player", "volume", 1f));
             PlayerPlayMode(c.Read("player", "playmode", 2));
             deviceSetByName(c.Read("player", "device", "<default>"));
@@ -313,7 +303,6 @@ namespace mmp
             c.Clear();
             c.Write("path", "root", settingRootPathText.Text);
             c.Write("path", "current", current == null ? "" : current.FullPath);
-            c.Write("font", "size", fontFile.Size.ToString());
             c.Write("player", "volume", player.GetVolume().ToString());
             c.Write("player", "playmode", playmode.ToString());
             c.Write("player", "device", (string)devicesComboBox.SelectedItem);
